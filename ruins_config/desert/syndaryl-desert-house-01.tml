@@ -1,0 +1,370 @@
+
+# Created by Ruins mod Ingame Parser
+# authoring Player: Syndaryl
+
+# TEMPLATE PARAMETER SETTINGS:
+#
+# criterion expression specifying mod ids required to load template
+# may include plus (AND), minus (AND NOT), comma (OR), and parentheses
+# all required mods listed must be present; no prohibited mods can be
+requiredMods=
+#
+# likelihood this template will be chosen relative to all others
+# e.g., a weight=6 template is chosen 3X as often as one with weight=2
+weight=1
+#
+# list of dimensions in which this template may spawn, even if generic
+# one or more dimension names, separated by commas (blank = all)
+dimensionsToSpawnIn=
+#
+# list of other biomes in which this template may spawn
+# biome corresponding to directory is always assumed, listed or not
+# generic templates should leave this list empty
+biomesToSpawnIn=
+#
+# criterion expression specifying types of biome where template spawns
+# this is in addition to those explicitly listed as biomesToSpawnIn
+# generic templates should leave this list empty
+biomeTypesToSpawnIn=HOT,SPARSE,DRY,SANDY,WASTELAND
+#
+# list of biomes in which this template may not spawn
+# takes precedence over biomeTypesToSpawnIn, but NOT biomesToSpawnIn
+# should be empty if biomeTypesToSpawnIn is empty
+biomesToNotSpawnIn=
+#
+# depth template is pushed down into the surface when built
+# offset is min/max range of random additional bury depth
+embed_into_distance=3
+random_height_offset=0,0
+#
+# whitelist/blacklist of block states on which template may be built
+# specify one, not both; leave the other empty (both empty = allow all)
+# CAUTION: THE DEFAULTS ONLY APPLY TO NON-FLOWING LAVA AND WATER VARIANTS)
+acceptable_target_blocks={Name:"minecraft:sandstone"},{Name:"minecraft:sand"}
+unacceptable_target_blocks=
+#
+# size of template (#layers, #rows per layer, #blocks per row)
+dimensions=13,15,13
+#
+# max number of missing blocks allowed in surface beneath template
+allowable_overhang=0
+#
+# depth/height limit affected by terrain leveling
+# also maximum bumpiness tolerated in surface beneath template
+max_leveling=2
+#
+# padding applied to all sides of template horizontal footprint
+# expands area affected by terrain leveling (-1 = no leveling)
+leveling_buffer=3
+#
+# do not rotate template randomly when built (1 = no rotation)
+preventRotation=0
+#
+# treat water/lava blocks as air and protect them from rule0 (1 = yes)
+preserve_water=0
+preserve_lava=0
+#
+# minimum distance this template must have from instances of itself
+uniqueMinDistance=0
+#
+# min/max distances this template can be from world spawn (0 = no limit)
+# only applies to overworld--i.e., dimension 0
+spawnMinDistance=0
+spawnMaxDistance=0
+#
+# other template built nearby whenever this one is
+# syntax: <name>;<relativeX>;<maxYdifference>;<relativeZ>[;<chance>]
+# may be used more than once to specify multiple neighbors
+adjoining_template=
+
+rule1={Name:"minecraft:sandstone"}
+rule2={Name:"minecraft:sand"}
+rule3={Name:"minecraft:sand",Ruins:{weight:2}},{Name:"air"}
+rule4={Name:"minecraft:dead_bush",Ruins:{weight:2}},{Name:"air"}
+rule5={Name:"minecraft:smooth_sandstone"}
+rule6={Properties:{half:"bottom",waterlogged:"false",shape:"straight",facing:"north"},Name:"minecraft:sandstone_stairs"}
+rule7={Properties:{age:"5"},Name:"minecraft:cactus"}
+rule8={Properties:{age:"7"},Name:"minecraft:cactus"}
+rule9={Properties:{age:"4"},Name:"minecraft:cactus"}
+rule10={Name:"minecraft:cut_sandstone"}
+rule11={Properties:{half:"bottom",waterlogged:"false",shape:"inner_left",facing:"north"},Name:"minecraft:acacia_stairs"}
+rule12={Properties:{half:"bottom",waterlogged:"false",shape:"straight",facing:"west"},Name:"minecraft:acacia_stairs"}
+rule13={Properties:{half:"bottom",waterlogged:"false",shape:"inner_right",facing:"south"},Name:"minecraft:acacia_stairs"}
+rule14={Properties:{half:"bottom",waterlogged:"false",shape:"straight",facing:"north"},Name:"minecraft:acacia_stairs"}
+rule15={Properties:{east:"false",waterlogged:"false",south:"false",north:"false",west:"false"},Name:"minecraft:dark_oak_fence"}
+rule16={Properties:{half:"bottom",waterlogged:"false",shape:"straight",facing:"south"},Name:"minecraft:acacia_stairs"}
+rule17={Name:"minecraft:white_carpet"}
+rule18={Properties:{hinge:"left",half:"lower",powered:"false",facing:"south",open:"false"},Name:"minecraft:acacia_door"}
+rule19={Ruins:{entity:{ForgeData:{LootTable:"minecraft:chests/stronghold_corridor"},Items:[]}},Properties:{waterlogged:"false",facing:"south",type:"single"},Name:"minecraft:chest"}
+rule20={Name:"minecraft:crafting_table",Ruins:{weight:3}},{Name:"minecraft:fletching_table"},{Name:"minecraft:smithing_table"},{Name:"minecraft:cartography_table"}
+rule21={Properties:{waterlogged:"false",facing:"north"},Name:"minecraft:ladder"}
+rule22={Properties:{half:"top",waterlogged:"false",powered:"false",facing:"west",open:"true"},Name:"minecraft:acacia_trapdoor"}
+rule23={Properties:{east:"false",waterlogged:"false",south:"true",north:"true",west:"false"},Name:"minecraft:yellow_stained_glass_pane"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"true",west:"false"},Name:"minecraft:white_stained_glass_pane"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"true",west:"false"},Name:"minecraft:black_stained_glass_pane"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"true",west:"false"},Name:"minecraft:lime_stained_glass_pane"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"true",west:"false"},Name:"minecraft:cyan_stained_glass_pane"}
+rule24={Properties:{half:"top",waterlogged:"false",powered:"false",facing:"south",open:"true"},Name:"minecraft:acacia_trapdoor"}
+rule25={Properties:{powered:"false"},Name:"minecraft:spruce_pressure_plate"}
+rule26={Properties:{east:"true",waterlogged:"false",south:"false",north:"false",west:"true"},Name:"minecraft:yellow_stained_glass_pane"}
+^{Properties:{east:"true",waterlogged:"false",south:"false",north:"false",west:"true"},Name:"minecraft:white_stained_glass_pane"}
+^{Properties:{east:"true",waterlogged:"false",south:"false",north:"false",west:"true"},Name:"minecraft:black_stained_glass_pane"}
+^{Properties:{east:"true",waterlogged:"false",south:"false",north:"false",west:"true"},Name:"minecraft:lime_stained_glass_pane"} 
+^{Properties:{east:"true",waterlogged:"false",south:"false",north:"false",west:"true"},Name:"minecraft:cyan_stained_glass_pane"} 
+rule27={Properties:{half:"top",waterlogged:"false",powered:"false",facing:"north",open:"true"},Name:"minecraft:acacia_trapdoor"}
+rule28={Properties:{hinge:"left",half:"upper",powered:"false",facing:"south",open:"false"},Name:"minecraft:acacia_door"}
+rule29={Properties:{half:"top",waterlogged:"false",powered:"false",facing:"east",open:"true"},Name:"minecraft:acacia_trapdoor"}
+rule30={Properties:{half:"bottom",waterlogged:"false",powered:"false",facing:"west",open:"true"},Name:"minecraft:acacia_trapdoor"}
+rule31={Properties:{hanging:"true"},Name:"minecraft:lantern"}
+rule32={Properties:{half:"bottom",waterlogged:"false",powered:"false",facing:"north",open:"true"},Name:"minecraft:acacia_trapdoor"}
+rule33={Properties:{half:"bottom",waterlogged:"false",powered:"false",facing:"east",open:"true"},Name:"minecraft:acacia_trapdoor"}
+rule34={Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:acacia_fence"}
+rule35={Properties:{axis:"z"},Name:"minecraft:stripped_acacia_log"}
+rule36={Properties:{east:"false",waterlogged:"false",south:"false",north:"true",west:"false"},Name:"minecraft:acacia_fence"}
+rule37={Properties:{waterlogged:"false",type:"top"},Name:"minecraft:cut_sandstone_slab"}
+rule38={Properties:{half:"top",waterlogged:"false",powered:"false",facing:"north",open:"false"},Name:"minecraft:acacia_trapdoor"}
+rule39={Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"false",up:"true"},Name:"minecraft:sandstone_wall"}
+rule40={Properties:{east:"false",waterlogged:"false",south:"true",north:"true",west:"false",up:"false"},Name:"minecraft:sandstone_wall"}
+rule41={Properties:{east:"true",waterlogged:"false",south:"false",north:"true",west:"false",up:"true"},Name:"minecraft:sandstone_wall"}
+rule42={Properties:{east:"true",waterlogged:"false",south:"false",north:"false",west:"true",up:"false"},Name:"minecraft:sandstone_wall"}
+rule43={Properties:{east:"false",waterlogged:"false",south:"false",north:"false",west:"false"},Name:"minecraft:acacia_fence"}
+rule44={Ruins:{entity:{}},Properties:{part:"head",facing:"west",occupied:"false"},Name:"minecraft:brown_bed"}
+rule45={Ruins:{entity:{}},Properties:{part:"foot",facing:"west",occupied:"false"},Name:"minecraft:brown_bed"}
+rule46={Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"true",up:"true"},Name:"minecraft:sandstone_wall"}
+rule47={Properties:{east:"false",waterlogged:"false",south:"false",north:"true",west:"true",up:"true"},Name:"minecraft:sandstone_wall"}
+rule48={Properties:{waterlogged:"false",type:"bottom"},Name:"minecraft:acacia_slab"}
+
+layer
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1
+endlayer
+
+layer
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+endlayer
+
+layer
+3,3,3,2,2,2,2,2,2,2,3,3,3
+3,3,2,2,2,2,2,2,2,2,2,3,3
+3,2,2,2,2,2,2,2,2,2,2,2,3
+3,2,2,2,2,2,2,2,2,2,2,2,3
+3,2,2,2,2,2,2,2,2,2,2,2,3
+3,2,2,2,2,2,2,2,2,2,2,2,2
+3,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+3,2,2,2,2,2,2,2,2,2,2,2,2
+3,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,2,2,2,2
+endlayer
+
+layer
+0,0,0,0,4,0,0,0,4,0,0,0,0
+0,0,0,3,3,3,2,2,3,3,0,0,0
+0,3,2,2,2,2,2,2,2,2,3,0,0
+0,3,2,2,1,1,1,1,1,2,2,3,0
+0,3,2,2,1,5,5,5,1,2,2,3,0
+0,3,2,2,1,5,5,5,1,2,2,3,0
+0,3,2,2,1,5,5,5,1,2,2,3,0
+0,3,2,2,1,5,5,5,1,2,2,2,0
+0,6,1,1,1,5,5,5,1,2,2,2,0
+0,3,2,2,1,5,5,5,1,2,2,2,0
+0,3,2,2,1,5,5,5,1,2,2,3,0
+0,3,2,2,1,1,1,1,1,2,2,3,0
+0,2,2,2,2,2,2,2,2,2,2,3,0
+0,0,3,2,2,2,2,2,3,3,3,0,7
+4,0,0,0,0,3,3,3,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,8,0,0,0,0,0,0
+0,0,9,0,0,0,0,0,0,0,0,0,0
+0,0,0,4,10,1,1,1,10,0,4,0,0
+0,0,0,0,1,13,12,11,1,0,0,0,0
+0,0,0,0,1,16,15,14,1,0,0,0,0
+0,0,0,0,1,17,17,17,1,0,0,0,0
+0,0,4,0,1,17,17,17,1,0,0,4,0
+0,0,0,0,18,17,17,17,1,0,0,0,0
+0,0,0,0,1,17,17,19,1,0,0,0,0
+0,0,0,0,1,21,17,20,1,0,0,0,0
+0,0,0,0,10,1,1,1,10,0,0,0,0
+0,4,0,0,0,0,0,0,0,4,0,0,0
+0,0,0,4,0,0,0,4,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,22,0,22,0,0,0,0,0
+0,0,0,0,10,1,23,1,10,0,0,0,0
+0,0,0,24,1,0,0,0,1,0,0,0,0
+0,0,0,0,26,0,25,0,1,0,0,0,0
+0,0,0,24,1,0,0,0,1,27,0,0,0
+0,0,0,0,1,0,0,0,26,0,0,0,0
+0,0,0,0,28,0,0,0,1,27,0,0,0
+0,0,0,0,1,0,0,0,1,0,0,0,0
+0,0,0,0,1,21,0,0,1,0,0,0,0
+0,0,0,0,10,1,23,1,10,0,0,0,0
+0,0,0,0,0,29,0,29,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,30,0,30,0,0,0,0,0
+0,0,0,0,10,1,23,1,10,0,0,0,0
+0,0,0,0,1,0,0,0,1,0,0,0,0
+0,0,31,0,1,0,0,0,1,0,31,0,0
+0,0,0,0,1,0,0,0,1,32,0,0,0
+0,0,0,0,1,0,0,0,26,0,0,0,0
+0,0,0,0,1,0,0,0,1,32,0,0,0
+0,0,31,0,1,0,0,0,1,0,31,0,0
+0,0,0,0,1,21,0,0,1,0,0,0,0
+0,0,0,0,10,1,23,1,10,0,0,0,0
+0,0,0,0,0,33,0,33,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,10,1,1,1,10,0,0,0,0
+0,0,0,0,1,0,0,0,1,0,0,0,0
+0,0,36,35,35,35,35,35,35,35,34,0,0
+0,0,0,0,1,0,0,0,1,0,0,0,0
+0,0,0,0,1,0,0,0,1,0,0,0,0
+0,0,0,0,1,0,0,0,1,0,0,0,0
+0,0,36,35,35,35,35,35,35,35,34,0,0
+0,0,0,0,1,21,0,0,1,0,0,0,0
+0,0,0,0,10,1,1,1,10,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,10,1,1,1,10,0,0,0,0
+0,0,0,0,1,37,37,37,1,0,0,0,0
+0,0,0,0,1,37,37,37,1,0,0,0,0
+0,0,0,0,1,37,37,37,1,0,0,0,0
+0,0,0,0,1,37,37,37,1,0,0,0,0
+0,0,0,0,1,37,37,37,1,0,0,0,0
+0,0,0,0,1,37,37,37,1,0,0,0,0
+0,0,0,0,1,38,37,37,1,0,0,0,0
+0,0,0,0,10,1,1,1,10,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,41,40,40,40,39,0,0,0,0
+0,0,0,0,42,0,0,0,42,0,0,0,0
+0,0,0,0,42,43,0,43,42,0,0,0,0
+0,0,0,0,42,0,44,0,42,0,0,0,0
+0,0,0,0,42,0,45,0,42,0,0,0,0
+0,0,0,0,42,43,0,43,42,0,0,0,0
+0,0,0,0,42,0,0,0,42,0,0,0,0
+0,0,0,0,42,0,0,0,42,0,0,0,0
+0,0,0,0,47,40,40,40,46,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,43,0,43,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,43,0,43,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,43,0,43,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,43,0,43,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,48,48,48,0,0,0,0,0
+0,0,0,0,0,48,48,48,0,0,0,0,0
+0,0,0,0,0,48,48,48,0,0,0,0,0
+0,0,0,0,0,48,48,48,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+

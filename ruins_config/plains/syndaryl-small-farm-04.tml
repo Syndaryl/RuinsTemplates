@@ -1,0 +1,161 @@
+
+# Created by Ruins mod Ingame Parser
+# authoring Player: Syndaryl
+
+# TEMPLATE PARAMETER SETTINGS:
+#
+# criterion expression specifying mod ids required to load template
+# may include plus (AND), minus (AND NOT), comma (OR), and parentheses
+# all required mods listed must be present; no prohibited mods can be
+requiredMods=
+#
+# likelihood this template will be chosen relative to all others
+# e.g., a weight=6 template is chosen 3X as often as one with weight=2
+weight=1
+#
+# list of dimensions in which this template may spawn, even if generic
+# one or more dimension names, separated by commas (blank = all)
+dimensionsToSpawnIn=
+#
+# list of other biomes in which this template may spawn
+# biome corresponding to directory is always assumed, listed or not
+# generic templates should leave this list empty
+biomesToSpawnIn=
+#
+# criterion expression specifying types of biome where template spawns
+# this is in addition to those explicitly listed as biomesToSpawnIn
+# generic templates should leave this list empty
+biomeTypesToSpawnIn=FOREST,PLAINS,HILLS
+#
+# list of biomes in which this template may not spawn
+# takes precedence over biomeTypesToSpawnIn, but NOT biomesToSpawnIn
+# should be empty if biomeTypesToSpawnIn is empty
+biomesToNotSpawnIn=
+#
+# depth template is pushed down into the surface when built
+# offset is min/max range of random additional bury depth
+embed_into_distance=1
+random_height_offset=0,0
+#
+# whitelist/blacklist of block states on which template may be built
+# specify one, not both; leave the other empty (both empty = allow all)
+# CAUTION: THE DEFAULTS ONLY APPLY TO NON-FLOWING LAVA AND WATER VARIANTS)
+acceptable_target_blocks={Name:"minecraft:grass_block"},{Name:"minecraft:dirt"},{Name:"minecraft:coarse_dirt"},{Name:"minecraft:mycelium"},{Name:"minecraft:podzol"},{Name:"minecraft:stone"},{Name:"minecraft:andesite"},{Name:"minecraft:granite"}
+unacceptable_target_blocks=
+#
+# size of template (#layers, #rows per layer, #blocks per row)
+dimensions=4,13,10
+#
+# max number of missing blocks allowed in surface beneath template
+allowable_overhang=0
+#
+# depth/height limit affected by terrain leveling
+# also maximum bumpiness tolerated in surface beneath template
+max_leveling=2
+#
+# padding applied to all sides of template horizontal footprint
+# expands area affected by terrain leveling (-1 = no leveling)
+leveling_buffer=0
+#
+# do not rotate template randomly when built (1 = no rotation)
+preventRotation=0
+#
+# treat water/lava blocks as air and protect them from rule0 (1 = yes)
+preserve_water=0
+preserve_lava=0
+#
+# minimum distance this template must have from instances of itself
+uniqueMinDistance=0
+#
+# min/max distances this template can be from world spawn (0 = no limit)
+# only applies to overworld--i.e., dimension 0
+spawnMinDistance=0
+spawnMaxDistance=0
+#
+# other template built nearby whenever this one is
+# syntax: <name>;<relativeX>;<maxYdifference>;<relativeZ>[;<chance>]
+# may be used more than once to specify multiple neighbors
+adjoining_template=
+
+rule1={Properties:{snowy:"false"},Name:"minecraft:grass_block"}
+rule2={Name:"minecraft:coarse_dirt"}
+rule3={Name:"minecraft:cobblestone"}
+rule4={Name:"minecraft:dirt"}
+rule5={Name:"minecraft:grass"}
+rule6={Properties:{half:"lower"},Name:"minecraft:tall_grass"}
+rule7={Properties:{moisture:"0"},Name:"minecraft:farmland"}
+rule8={Properties:{moisture:"7"},Name:"minecraft:farmland"}
+rule9={Properties:{level:"0"},Name:"minecraft:water"}
+rule10={Name:"minecraft:dandelion"}
+rule11={Properties:{half:"upper"},Name:"minecraft:tall_grass"}
+rule12={Properties:{age:"1"},Name:"minecraft:carrots"}
+rule13={Properties:{east:"false",waterlogged:"false",south:"false",north:"false",west:"false",up:"true"},Name:"minecraft:stone_brick_wall"}
+rule14={Properties:{age:"0"},Name:"minecraft:wheat"}
+rule15={Name:"minecraft:poppy"}
+rule16={Properties:{age:"3"},Name:"minecraft:wheat"}
+rule17={Name:"minecraft:torch"}
+
+layer
+1,1,4,3,1,2,1,1,1,1
+1,4,4,4,4,4,2,1,1,1
+4,4,4,4,4,2,2,2,1,1
+4,4,4,4,2,2,4,4,1,1
+4,4,4,4,4,4,4,4,1,1
+4,4,4,4,4,4,4,4,1,1
+4,4,4,4,4,4,4,4,1,1
+4,4,4,4,4,4,4,4,1,1
+1,1,4,4,4,4,4,4,4,1
+1,1,1,4,4,4,4,2,4,1
+1,1,1,4,4,4,4,4,4,1
+1,1,1,1,1,4,4,4,1,1
+1,1,1,1,1,1,1,1,1,1
+endlayer
+
+layer
+0,0,1,0,0,0,0,0,0,5
+0,1,3,3,1,1,0,6,5,6
+1,1,3,1,7,2,2,0,6,5
+1,1,1,7,2,7,2,2,5,5
+1,1,4,2,8,8,8,1,0,0
+1,4,1,1,8,7,8,7,5,0
+1,1,1,8,8,8,8,4,0,5
+1,1,1,8,8,8,2,2,0,0
+0,0,1,8,7,9,8,8,1,0
+0,5,6,1,2,8,7,1,1,0
+5,6,0,1,7,8,8,1,1,10
+0,0,5,5,0,1,1,1,0,5
+0,5,0,5,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0
+0,0,3,0,5,0,0,11,0,11
+0,0,0,6,12,0,0,0,11,0
+0,5,0,0,0,14,0,13,0,0
+0,5,1,0,0,0,0,0,0,0
+0,1,5,5,0,0,0,0,0,0
+0,10,5,0,0,14,0,0,0,0
+0,5,0,0,14,0,0,0,0,0
+0,0,10,0,0,0,16,0,15,0
+0,0,11,5,0,0,0,0,0,0
+0,11,0,13,0,0,0,5,5,0
+0,0,0,0,0,0,0,5,0,0
+0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0
+0,0,0,11,0,0,0,0,0,0
+0,0,0,0,0,0,0,17,0,0
+0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0
+0,0,0,17,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0
+endlayer
+

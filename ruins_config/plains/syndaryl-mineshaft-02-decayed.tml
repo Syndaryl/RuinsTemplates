@@ -1,0 +1,362 @@
+
+# Created by Ruins mod Ingame Parser
+# authoring Player: Syndaryl
+
+# TEMPLATE PARAMETER SETTINGS:
+#
+# criterion expression specifying mod ids required to load template
+# may include plus (AND), minus (AND NOT), comma (OR), and parentheses
+# all required mods listed must be present; no prohibited mods can be
+requiredMods=quark
+#
+# likelihood this template will be chosen relative to all others
+# e.g., a weight=6 template is chosen 3X as often as one with weight=2
+weight=1
+#
+# list of dimensions in which this template may spawn, even if generic
+# one or more dimension names, separated by commas (blank = all)
+dimensionsToSpawnIn=
+#
+# list of other biomes in which this template may spawn
+# biome corresponding to directory is always assumed, listed or not
+# generic templates should leave this list empty
+biomesToSpawnIn=
+#
+# criterion expression specifying types of biome where template spawns
+# this is in addition to those explicitly listed as biomesToSpawnIn
+# generic templates should leave this list empty
+biomeTypesToSpawnIn=FOREST,PLAINS,HILLS
+#
+# list of biomes in which this template may not spawn
+# takes precedence over biomeTypesToSpawnIn, but NOT biomesToSpawnIn
+# should be empty if biomeTypesToSpawnIn is empty
+biomesToNotSpawnIn=
+#
+# depth template is pushed down into the surface when built
+# offset is min/max range of random additional bury depth
+embed_into_distance=10
+random_height_offset=0,0
+#
+# whitelist/blacklist of block states on which template may be built
+# specify one, not both; leave the other empty (both empty = allow all)
+# CAUTION: THE DEFAULTS ONLY APPLY TO NON-FLOWING LAVA AND WATER VARIANTS)
+acceptable_target_blocks={Name:"minecraft:grass_block"},{Name:"minecraft:dirt"},{Name:"minecraft:coarse_dirt"},{Name:"minecraft:mycelium"},{Name:"minecraft:podzol"}
+unacceptable_target_blocks=
+#
+# size of template (#layers, #rows per layer, #blocks per row)
+dimensions=17,12,11
+#
+# max number of missing blocks allowed in surface beneath template
+allowable_overhang=0
+#
+# depth/height limit affected by terrain leveling
+# also maximum bumpiness tolerated in surface beneath template
+max_leveling=2
+#
+# padding applied to all sides of template horizontal footprint
+# expands area affected by terrain leveling (-1 = no leveling)
+leveling_buffer=0
+#
+# do not rotate template randomly when built (1 = no rotation)
+preventRotation=0
+#
+# treat water/lava blocks as air and protect them from rule0 (1 = yes)
+preserve_water=0
+preserve_lava=0
+#
+# minimum distance this template must have from instances of itself
+uniqueMinDistance=0
+#
+# min/max distances this template can be from world spawn (0 = no limit)
+# only applies to overworld--i.e., dimension 0
+spawnMinDistance=0
+spawnMaxDistance=0
+#
+# other template built nearby whenever this one is
+# syntax: <name>;<relativeX>;<maxYdifference>;<relativeZ>[;<chance>]
+# may be used more than once to specify multiple neighbors
+adjoining_template=
+
+rule1={Name:"minecraft:stone",Ruins:{weight:10}},{Name:"minecraft:iron_ore",Ruins:{weight:1}},{Name:"minecraft:coal_ore",Ruins:{weight:3}}
+rule2={Name:"minecraft:stone_bricks",Ruins:{weight:3}},{Name:"minecraft:cracked_stone_bricks"},{Name:"minecraft:mossy_stone_bricks"}
+rule3={Name:"air"}
+rule4={Name:"quark:rope"}
+rule5={Properties:{hanging:"true"},Name:"minecraft:lantern"},{Name:"minecraft:torch"}
+rule6={Name:"minecraft:dirt"}
+rule7={Properties:{snowy:"false"},Name:"minecraft:grass_block",Ruins:{weight:8}},{Properties:{snowy:"false"},Name:"minecraft:grass_block",Ruins:{weight:1,bonemeal:1}}
+rule8={Name:"minecraft:gravel"},{Name:"minecraft:coarse_dirt"},{Name:"minecraft:grass_path",Ruins:{weight:3}}
+rule9={Name:"minecraft:coarse_dirt",Ruins:{weight:3}},{Name:"minecraft:grass_path"}
+rule10={Name:"minecraft:cobblestone"}
+rule11={Properties:{snowy:"false"},Name:"minecraft:grass_block",Ruins:{weight:1}},{Properties:{snowy:"false"},Name:"minecraft:grass_block",Ruins:{weight:1,bonemeal:1}},{Name:"air",Ruins:{weight:2}}
+rule12={Name:"minecraft:coarse_dirt"},{Name:"minecraft:grass_path",Ruins:{weight:3}},{Name:"minecraft:gravel"},{Name:"air",Ruins:{weight:4}}
+rule13={Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"false",up:"true"},Name:"minecraft:_wall"},{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"false",up:"true"},Name:"minecraft:cobblestone_wall"},{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"false",up:"true"},Name:"minecraft:mossy_stone_brick_wall"}
+rule14={Properties:{east:"true",waterlogged:"false",south:"true",north:"true",west:"false",up:"true"},Name:"minecraft:_wall"},{Properties:{east:"true",waterlogged:"false",south:"true",north:"true",west:"false",up:"true"},Name:"minecraft:cobblestone_wall"},{Properties:{east:"true",waterlogged:"false",south:"true",north:"true",west:"false",up:"true"},Name:"minecraft:mossy_stone_brick_wall"}
+rule15={Properties:{in_wall:"true",powered:"false",facing:"east",open:"false"},Name:"minecraft:spruce_fence_gate"}
+rule16={Properties:{east:"true",waterlogged:"false",south:"false",north:"true",west:"false",up:"true"},Name:"minecraft:_wall"},{Properties:{east:"true",waterlogged:"false",south:"false",north:"true",west:"false",up:"true"},Name:"minecraft:cobblestone_wall"},{Properties:{east:"true",waterlogged:"false",south:"false",north:"true",west:"false",up:"true"},Name:"minecraft:mossy_stone_brick_wall"}
+rule17={Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"true",up:"true"},Name:"minecraft:_wall"},{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"true",up:"true"},Name:"minecraft:cobblestone_wall"},{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"true",up:"true"},Name:"minecraft:mossy_stone_brick_wall"}
+rule18={Properties:{east:"true",waterlogged:"false",south:"false",north:"true",west:"true",up:"true"},Name:"minecraft:_wall"},{Properties:{east:"true",waterlogged:"false",south:"false",north:"true",west:"true",up:"true"},Name:"minecraft:cobblestone_wall"},{Properties:{east:"true",waterlogged:"false",south:"false",north:"true",west:"true",up:"true"},Name:"minecraft:mossy_stone_brick_wall"}
+rule19={Properties:{waterlogged:"false",facing:"north"},Name:"quark:jungle_ladder"}
+rule20={Properties:{axis:"y"},Name:"minecraft:stripped_spruce_log"}
+rule21={Properties:{east:"true",waterlogged:"false",south:"false",north:"false",west:"true",up:"true"},Name:"minecraft:_wall"},{Properties:{east:"true",waterlogged:"false",south:"false",north:"false",west:"true",up:"true"},Name:"minecraft:cobblestone_wall"},{Properties:{east:"true",waterlogged:"false",south:"false",north:"false",west:"true",up:"true"},Name:"minecraft:mossy_stone_brick_wall"}
+rule22={Properties:{waterlogged:"false",facing:"south"},Name:"quark:jungle_ladder"}
+rule23={Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"true",up:"true"},Name:"minecraft:_wall"},{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"true",up:"true"},Name:"minecraft:cobblestone_wall"},{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"true",up:"true"},Name:"minecraft:mossy_stone_brick_wall"}
+rule24={Properties:{east:"false",waterlogged:"false",south:"true",north:"true",west:"true",up:"true"},Name:"minecraft:_wall"},{Properties:{east:"false",waterlogged:"false",south:"true",north:"true",west:"true",up:"true"},Name:"minecraft:cobblestone_wall"},{Properties:{east:"false",waterlogged:"false",south:"true",north:"true",west:"true",up:"true"},Name:"minecraft:mossy_stone_brick_wall"}
+rule25={Properties:{east:"false",waterlogged:"false",south:"false",north:"true",west:"true",up:"true"},Name:"minecraft:_wall"},{Properties:{east:"false",waterlogged:"false",south:"false",north:"true",west:"true",up:"true"},Name:"minecraft:cobblestone_wall"},{Properties:{east:"false",waterlogged:"false",south:"false",north:"true",west:"true",up:"true"},Name:"minecraft:mossy_stone_brick_wall"}
+rule26={Properties:{hanging:"true"},Name:"minecraft:lantern"}
+rule27={Properties:{east:"true",waterlogged:"false",south:"true",north:"true",west:"true"},Name:"minecraft:jungle_fence"}
+
+layer
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,3,4,3,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+endlayer
+
+layer
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,5,3,4,3,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+endlayer
+
+layer
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,3,4,3,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+endlayer
+
+layer
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,3,4,3,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+endlayer
+
+layer
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,3,4,3,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+endlayer
+
+layer
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,3,4,3,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+endlayer
+
+layer
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,6,1,1,1,1
+1,1,1,1,6,6,6,1,1,1,1
+1,1,1,1,6,6,6,1,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,3,4,3,2,1,1,1
+1,1,1,2,3,3,3,2,1,1,1
+1,1,1,2,2,2,2,2,1,1,1
+1,1,1,6,6,6,6,6,1,1,1
+1,1,1,6,6,6,6,6,1,1,1
+endlayer
+
+layer
+6,6,6,6,1,1,6,6,6,1,1
+6,6,6,6,1,1,1,1,1,1,1
+6,6,6,6,1,1,1,1,1,1,1
+6,6,6,6,1,1,6,1,1,1,1
+6,6,6,6,6,6,6,1,1,1,1
+6,6,6,2,2,2,2,2,6,6,6
+6,6,6,2,3,3,3,2,6,6,6
+6,6,6,2,3,4,3,2,6,6,6
+6,6,6,2,3,3,3,2,6,6,6
+6,6,6,2,2,2,2,2,6,6,6
+6,6,6,6,6,6,6,6,6,6,6
+6,6,6,6,6,6,6,6,6,6,6
+endlayer
+
+layer
+6,6,6,6,6,6,6,6,6,6,6
+6,6,6,6,6,6,6,6,6,6,6
+6,6,6,6,1,6,6,6,1,1,1
+6,6,6,6,6,6,6,6,6,6,6
+6,6,6,6,6,6,6,6,6,6,6
+6,6,6,2,2,2,2,2,6,6,6
+6,6,6,2,3,3,3,2,6,6,6
+6,6,6,2,3,4,3,2,6,6,6
+6,6,6,2,3,3,3,2,6,6,6
+6,6,6,2,2,2,2,2,6,6,6
+6,6,6,6,6,6,6,6,6,6,6
+6,6,6,6,6,6,6,6,6,6,6
+endlayer
+
+layer
+7,7,7,7,8,8,8,7,7,7,7
+7,7,6,7,8,8,8,9,6,7,7
+7,6,6,6,6,6,6,6,6,6,7
+7,6,6,6,6,6,6,6,9,6,6
+6,6,6,6,6,6,6,6,6,6,6
+6,6,6,2,2,2,2,2,6,6,6
+6,6,6,2,3,3,3,2,6,6,6
+6,6,10,5,3,4,3,2,6,6,6
+7,6,6,2,3,3,3,2,6,6,7
+7,6,6,2,2,2,2,2,6,6,7
+7,7,6,6,6,6,6,6,6,7,7
+7,7,7,7,7,7,7,7,7,7,7
+endlayer
+
+layer
+11,11,11,11,0,0,0,0,11,11,11
+11,11,7,11,0,0,0,7,7,11,11
+11,7,7,7,12,12,12,7,7,7,11
+11,7,7,7,8,8,8,7,7,7,7
+7,7,7,7,8,8,8,7,7,7,7
+7,7,7,2,2,2,2,2,7,7,7
+7,7,7,2,3,3,3,2,7,7,7
+7,7,6,2,3,4,3,2,6,7,7
+11,7,7,2,3,3,3,2,7,7,11
+11,7,7,2,2,2,2,2,7,7,11
+11,11,7,7,7,7,7,7,7,11,11
+11,11,11,11,11,11,11,11,11,11,11
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,16,14,15,14,13,0,0,0
+0,0,0,18,3,3,3,17,0,0,0
+0,22,20,21,3,4,3,21,20,19,0
+0,0,0,18,3,3,3,17,0,0,0
+0,0,0,25,24,24,24,23,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,22,20,3,3,4,3,3,20,19,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,22,20,3,3,4,3,3,20,19,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,22,20,3,26,4,26,3,20,19,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,22,20,27,27,27,27,27,20,19,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,3,3,3,3,3,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,22,20,0,0,0,0,0,20,19,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
