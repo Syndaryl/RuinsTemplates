@@ -137,7 +137,7 @@ rule12={Properties:{shape:"east_west"},Name:"minecraft:rail"}
 rule13={Properties:{shape:"ascending_south"},Name:"minecraft:rail"}
 rule14={Properties:{shape:"ascending_north"},Name:"minecraft:rail"}
 rule15={Properties:{shape:"north_south"},Name:"minecraft:rail"}
-rule16=10*{Ruins:{entity:{ForgeData:{LootTable:"minecraft:chests/village/village_fisher"},Items:[]}},Properties:{waterlogged:"false",facing:"south",type:"single"},Name:"minecraft:chest"},{Ruins:{entity:{ForgeData:{LootTable:"minecraft:chests/shipwreck_supply"},Items:[]}},Properties:{waterlogged:"false",facing:"south",type:"single"},Name:"minecraft:chest"},3*{Properties:{waterlogged:"false",facing:"south",type:"single"},Name:"minecraft:chest"}
+rule16={Ruins:{weight:10,entity:{ForgeData:{LootTable:"minecraft:chests/village/village_fisher"},Items:[]}},Properties:{waterlogged:"false",facing:"south",type:"single"},Name:"minecraft:chest"},{Ruins:{entity:{ForgeData:{LootTable:"minecraft:chests/shipwreck_supply"},Items:[]}},Properties:{waterlogged:"false",facing:"south",type:"single"},Name:"minecraft:chest"},{Ruins:{weight:3}Properties:{waterlogged:"false",facing:"south",type:"single"},Name:"minecraft:chest"}
 rule17={Name:"minecraft:white_wool"}
 ^{Name:"minecraft:orange_wool"}
 ^{Name:"minecraft:magenta_wool"}
