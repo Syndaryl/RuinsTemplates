@@ -39,8 +39,8 @@ random_height_offset=-17,-14
 # whitelist/blacklist of block states on which template may be built
 # specify one, not both; leave the other empty (both empty = allow all)
 # CAUTION: THE DEFAULTS ONLY APPLY TO NON-FLOWING LAVA AND WATER VARIANTS)
-acceptable_target_blocks=
-unacceptable_target_blocks={Properties:{level:"0"},Name:"minecraft:water"},{Properties:{level:"0"},Name:"minecraft:lava"}
+acceptable_target_blocks={Name:"minecraft:grass_block"},{Name:"minecraft:dirt"},{Name:"minecraft:coarse_dirt"},{Name:"minecraft:mycelium"},{Name:"minecraft:podzol"},{Name:"minecraft:stone"},{Name:"minecraft:andesite"},{Name:"minecraft:granite"}
+unacceptable_target_blocks=
 #
 # size of template (#layers, #rows per layer, #blocks per row)
 dimensions=23,19,19
