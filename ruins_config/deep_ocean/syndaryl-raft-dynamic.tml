@@ -1,0 +1,287 @@
+
+# Created by Ruins mod Ingame Parser
+# authoring Player: Syndaryl
+
+# TEMPLATE PARAMETER SETTINGS:
+#
+# criterion expression specifying mod ids required to load template
+# may include plus (AND), minus (AND NOT), comma (OR), and parentheses
+# all required mods listed must be present; no prohibited mods can be
+requiredMods=
+#
+# likelihood this template will be chosen relative to all others
+# e.g., a weight=6 template is chosen 3X as often as one with weight=2
+weight=10
+#
+# list of dimensions in which this template may spawn, even if generic
+# one or more dimension names, separated by commas (blank = all)
+dimensionsToSpawnIn=
+#
+# list of other biomes in which this template may spawn
+# biome corresponding to directory is always assumed, listed or not
+# generic templates should leave this list empty
+biomesToSpawnIn=
+#
+# criterion expression specifying types of biome where template spawns
+# this is in addition to those explicitly listed as biomesToSpawnIn
+# generic templates should leave this list empty
+biomeTypesToSpawnIn=OCEAN,RIVER
+#
+# list of biomes in which this template may not spawn
+# takes precedence over biomeTypesToSpawnIn, but NOT biomesToSpawnIn
+# should be empty if biomeTypesToSpawnIn is empty
+biomesToNotSpawnIn=
+#
+# depth template is pushed down into the surface when built
+# offset is min/max range of random additional bury depth
+embed_into_distance=2
+random_height_offset=0,0
+#
+# whitelist/blacklist of block states on which template may be built
+# specify one, not both; leave the other empty (both empty = allow all)
+# CAUTION: THE DEFAULTS ONLY APPLY TO NON-FLOWING LAVA AND WATER VARIANTS)
+acceptable_target_blocks={Properties:{level:"0"},Name:"minecraft:water"},{Name:"minecraft:sand"}
+unacceptable_target_blocks=
+#
+# size of template (#layers, #rows per layer, #blocks per row)
+dimensions=13,7,16
+#
+# max number of missing blocks allowed in surface beneath template
+allowable_overhang=0
+#
+# depth/height limit affected by terrain leveling
+# also maximum bumpiness tolerated in surface beneath template
+max_leveling=0
+#
+# padding applied to all sides of template horizontal footprint
+# expands area affected by terrain leveling (-1 = no leveling)
+leveling_buffer=-1
+#
+# do not rotate template randomly when built (1 = no rotation)
+preventRotation=0
+#
+# treat water/lava blocks as air and protect them from rule0 (1 = yes)
+preserve_water=1
+preserve_lava=0
+#
+# minimum distance this template must have from instances of itself
+uniqueMinDistance=128
+#
+# min/max distances this template can be from world spawn (0 = no limit)
+# only applies to overworld--i.e., dimension 0
+spawnMinDistance=0
+spawnMaxDistance=0
+#
+# other template built nearby whenever this one is
+# syntax: <name>;<relativeX>;<maxYdifference>;<relativeZ>[;<chance>]
+# may be used more than once to specify multiple neighbors
+adjoining_template=
+
+rule1={Properties:{axis:"z"},Name:"minecraft:stripped_oak_log"}
+^{Properties:{axis:"z"},Name:"minecraft:stripped_spruce_log"}
+^{Properties:{axis:"z"},Name:"minecraft:stripped_birch_log"}
+^{Properties:{axis:"z"},Name:"minecraft:stripped_jungle_log"}
+^{Properties:{axis:"z"},Name:"minecraft:stripped_acacia_log"}
+^{Properties:{axis:"z"},Name:"minecraft:stripped_dark_oak_log"}
+rule2^{Properties:{axis:"x"},Name:"minecraft:stripped_oak_log"}
+^{Properties:{axis:"x"},Name:"minecraft:stripped_spruce_log"}
+^{Properties:{axis:"x"},Name:"minecraft:stripped_birch_log"}
+^{Properties:{axis:"x"},Name:"minecraft:stripped_jungle_log"}
+^{Properties:{axis:"x"},Name:"minecraft:stripped_acacia_log"}
+^{Properties:{axis:"x"},Name:"minecraft:stripped_dark_oak_log"}
+rule3^{Properties:{waterlogged:"false",type:"top"},Name:"minecraft:spruce_slab"}
+^{Properties:{waterlogged:"false",type:"top"},Name:"minecraft:dark_oak_slab"}
+^{Properties:{waterlogged:"false",type:"top"},Name:"minecraft:birch_slab"}
+^{Properties:{waterlogged:"false",type:"top"},Name:"minecraft:acacia_slab"}
+^{Properties:{waterlogged:"false",type:"top"},Name:"minecraft:jungle_slab"}
+^{Properties:{waterlogged:"false",type:"top"},Name:"minecraft:oak_slab"}
+rule4^{Properties:{east:"false",waterlogged:"false",south:"false",north:"false",west:"false"},Name:"minecraft:spruce_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"false",north:"false",west:"false"},Name:"minecraft:dark_oak_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"false",north:"false",west:"false"},Name:"minecraft:birch_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"false",north:"false",west:"false"},Name:"minecraft:acacia_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"false",north:"false",west:"false"},Name:"minecraft:jungle_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"false",north:"false",west:"false"},Name:"minecraft:oak_fence"}
+rule5^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:spruce_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:dark_oak_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:birch_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:acacia_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:jungle_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:oak_fence"}
+rule6^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:spruce_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:dark_oak_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:birch_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:acacia_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:jungle_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:oak_fence"}
+rule7^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:spruce_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:dark_oak_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:birch_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:acacia_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:jungle_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"false"},Name:"minecraft:oak_fence"}
+rule8^{Properties:{east:"true",waterlogged:"false",south:"true",north:"true",west:"true"},Name:"minecraft:spruce_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"true",west:"true"},Name:"minecraft:dark_oak_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"true",west:"true"},Name:"minecraft:birch_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"true",west:"true"},Name:"minecraft:acacia_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"true",west:"true"},Name:"minecraft:jungle_fence"}
+^{Properties:{east:"true",waterlogged:"false",south:"true",north:"true",west:"true"},Name:"minecraft:oak_fence"}
+rule9^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:spruce_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:dark_oak_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:birch_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:acacia_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:jungle_fence"}
+^{Properties:{east:"false",waterlogged:"false",south:"true",north:"false",west:"true"},Name:"minecraft:oak_fence"}
+rule10={Properties:{shape:"ascending_east"},Name:"minecraft:rail"}
+rule11={Properties:{shape:"ascending_west"},Name:"minecraft:rail"}
+rule12={Properties:{shape:"east_west"},Name:"minecraft:rail"}
+rule13={Properties:{shape:"ascending_south"},Name:"minecraft:rail"}
+rule14={Properties:{shape:"ascending_north"},Name:"minecraft:rail"}
+rule15={Properties:{shape:"north_south"},Name:"minecraft:rail"}
+rule16=10*{Ruins:{entity:{ForgeData:{LootTable:"minecraft:chests/village/village_fisher"},Items:[]}},Properties:{waterlogged:"false",facing:"south",type:"single"},Name:"minecraft:chest"},{Ruins:{entity:{ForgeData:{LootTable:"minecraft:chests/shipwreck_supply"},Items:[]}},Properties:{waterlogged:"false",facing:"south",type:"single"},Name:"minecraft:chest"},3*{Properties:{waterlogged:"false",facing:"south",type:"single"},Name:"minecraft:chest"}
+rule17={Name:"minecraft:white_wool"}
+^{Name:"minecraft:orange_wool"}
+^{Name:"minecraft:magenta_wool"}
+^{Name:"minecraft:light_blue_wool"}
+^{Name:"minecraft:yellow_wool"}
+^{Name:"minecraft:lime_wool"}
+^{Name:"minecraft:pink_wool"}
+^{Name:"minecraft:gray_wool"}
+^{Name:"minecraft:light_gray_wool"}
+^{Name:"minecraft:cyan_wool"}
+^{Name:"minecraft:purple_wool"}
+^{Name:"minecraft:blue_wool"}
+^{Name:"minecraft:brown_wool"}
+^{Name:"minecraft:green_wool"}
+^{Name:"minecraft:red_wool"}
+^{Name:"minecraft:black_wool"}
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
+endlayer
+
+layer
+0,0,0,0,0,10,0,0,0,0,0,10,0,0,0,0
+0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0
+0,0,0,0,3,3,3,3,3,3,3,3,3,0,0,0
+0,0,0,0,3,3,3,3,3,3,3,3,3,0,0,0
+0,0,0,0,3,3,3,3,3,3,3,3,3,0,0,0
+0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0
+0,0,0,0,0,11,0,0,0,0,0,11,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,12,0,14,2,13,0,12,0,0,0,0
+0,0,0,0,0,12,0,0,2,0,0,12,0,0,0,0
+0,0,0,0,0,12,16,0,2,0,0,12,0,0,0,0
+0,0,0,0,0,12,0,0,2,0,0,12,0,0,0,0
+0,0,0,0,0,12,0,14,2,13,0,12,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,5,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,6,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,8,7,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,6,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,9,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,4,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,4,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,4,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,4,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,4,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,4,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0
+endlayer
+
+layer
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,5,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,6,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,8,7,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,6,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,9,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0
+endlayer
+
